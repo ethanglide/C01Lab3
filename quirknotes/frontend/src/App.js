@@ -111,7 +111,7 @@ function App() {
   }
 
   const patchNoteState = (_id, title, content) => {
-    // Code for modifying state after PATCH here
+    setNotes((prevNotes) => prevNotes.map((entry) => entry._id === _id ? {_id, title, content} : entry))
   }
 
   return (
@@ -160,7 +160,7 @@ function App() {
           initialNote={dialogNote}
           closeDialog={closeDialog}
           postNote={postNoteState}
-          // patchNote={patchNoteState}
+          patchNote={patchNoteState}
           />
 
       </header>
